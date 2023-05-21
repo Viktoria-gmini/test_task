@@ -4,9 +4,9 @@ import java.io.*;
 import java.util.*;
 
 
-public class task2 {
+public class Task2 {
     static Map<Person,Thread> threadMap = new HashMap<>();
-    static List<Person> persons = Arrays.asList(Person.values()).subList(0, 6);;
+    static List<Person> persons = Arrays.asList(Person.values()).subList(0, 6);
     static volatile Person current = Person.None;
     static volatile Queue<Person> order = new ArrayDeque<>();
     static void goTONextPhrase(){

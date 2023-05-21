@@ -10,11 +10,11 @@ public class SpeakingActor extends Thread{
     {
         do{
             //если текущая фраза принадлежит именно этому актёру, он её читает
-            if(task2.current==person) {
+            if(Task2.current==person) {
                 Person.sayPhrase(person);//говорим фразу
-                task2.goTONextPhrase();//меняем current
-                if (task2.current!=Person.None) {
-                    task2.threadMap.get(task2.current).setPriority(10);//ставим следующему актёру высокий приоритет
+                Task2.goTONextPhrase();//меняем current
+                if (Task2.current!=Person.None) {
+                    Task2.threadMap.get(Task2.current).setPriority(10);//ставим следующему актёру высокий приоритет
                     setPriority(5);//а текущему приоритет понижаем
                 }
             } else {
@@ -22,6 +22,6 @@ public class SpeakingActor extends Thread{
                     Thread.yield();
                 } catch (Exception ignored) {}
             }
-        }while(!task2.order.isEmpty());
+        }while(!Task2.order.isEmpty());
     }
 }
